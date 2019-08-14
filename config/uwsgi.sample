@@ -1,0 +1,32 @@
+[uwsgi]
+
+processes = 4
+master = true
+
+http-socket = 0.0.0.0:8000
+chmod-socket = 664
+buffer-size = 32768
+log-date = true
+logto = /tmp/%n.log
+chdir = /home/vagrant/geonode
+module = geonode.wsgi
+enable-threads = true
+workers = 10
+virtualenv = /home/vagrant/env
+vacuum = true
+socket = /tmp/geonode.sock
+max-requests = 5000
+
+## Env Variables
+env = DEBUG=True
+env = SITE_NAME=wfp
+env = SITE_HOST_NAME=192.168.100.10
+env = SERVER_IP=192.168.100.10
+env = SITEURL=http://192.168.100.10
+env = PG_HOST=localhost
+env = ALLOWED_HOSTS=['localhost', '192.168.100.10', ]
+env = GEOSERVER_LOCATION=http://localhost:8080/geoserver/
+env = GEOSERVER_PUBLIC_LOCATION=http://192.168.100.10/geoserver/
+env = GEOSERVER_WEB_UI_LOCATION=http://192.168.100.10/geoserver/
+env = GEOSERVER_ADMIN_PASSWORD=geoserver
+env = ADMINS=['admin@gmail.com', ]

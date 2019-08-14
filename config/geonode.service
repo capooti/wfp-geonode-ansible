@@ -1,0 +1,11 @@
+[Unit]
+Description=uWSGI instance to serve GeoNode
+After=network.target
+
+[Service]
+User=vagrant
+Group=vagrant
+ExecStart=/home/vagrant/env/bin/uwsgi --ini /home/vagrant/geonode.ini
+
+[Install]
+WantedBy=multi-user.target
