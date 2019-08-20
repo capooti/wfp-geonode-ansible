@@ -66,10 +66,17 @@ git clone https://github.com/GeoNode/geonode.git
 virtualenv --no-site-packages env
 . env/bin/activate
 pip install -r geonode/requirements.txt
+pip install pygdal==1.11.4.5
 cd geonode
 pip install -e .
 paver setup
 paver sync
+```
+
+Install WFP GeoNode project from source:
+
+```
+git clone https://github.com/wfp-ose/wfp_geonode-2.10.git
 ```
 
 
